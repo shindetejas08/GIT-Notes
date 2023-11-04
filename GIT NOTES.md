@@ -87,8 +87,31 @@ which means it is added in staging area and ready to be COMMITTED.
 	```git
 	$git clone github_link
 	```
-
-
+13. If you want push new code/file into existing git repository then you need to run below commands firt and then push else you will get following error:
+    	```git
+    To https://github.com/shindetejas08/react-projects
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'https://github.com/shindetejas08/react-projects'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+    	```
+    - use following command to solve above issue
+	```git
+ 	$ git pull --rebase origin master
+ 	$ git push origin master
+	 ```
+14. Using Git Token:
+    - As of Aug 2021 git stopped using password authentication and started token system. Follow below steps to use token
+    1. go to profile > settings > developer settings > personal access tokens > tokens (classic) > Generate New Token > Select All options and set duration.
+    2. Copy the generated token and save it somewhere.
+    3. Now After running command  ```git add.``` run the below command after adding all the values in it
+    ```git
+    git remote set-url origin https://<token>@github.com/<username>/<repo>
+    ```
+    4. Now you are done. Commit and push the changes. END
 
 # MAIN vs MASTER BRANCH:
 - This is the main branch of commits or save points and it is sequential.And this is where your main progress is saved or committed.  
